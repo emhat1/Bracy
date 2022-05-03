@@ -1,0 +1,26 @@
+The website
+ - everybody wants the cutest possible pets
+ - led to selective breeding to enhance certain features
+ - selecting for features leads to selection for adverse features
+ - wanting to provide information on medical conditions associated with particular breeds
+ - giving lists of specialist rescues (adopt don't shop)
+ - allowing donations to be made to a specialist rescue organisation
+
+Aims
+ - provide information on medical issues associated with particular breeds
+ - allow logged-in users to leave comments
+ - allow all users to read comments
+ - provide users with a list of specialised rescue organisations searchable by state
+ - allow users to donate to Squishes Flat-Faced rescue
+
+Technologies
+ - Stripe - allowing donations by credit-card
+ - react - allowing multiple sites on one page
+ - bhash - password hashing
+ 
+
+Future Direction
+ - more breeds
+ - more rescues
+ - mailing list
+ - donation buttons for each listed rescue
