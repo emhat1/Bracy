@@ -1,0 +1,182 @@
+#root{
+  color:rgba(162, 151, 193, 0.253);
+}
+.navbar{
+  display: flex;
+  padding-left: 150px;
+  background-color: rgb(165, 172, 165);
+  text-decoration: none;
+  height: 80px;
+  align-items: center;
+  justify-content:start;
+  width: 100%;
+  font-size: 20px;
+  font-weight: bold;
+  font-family:serif;
+}
+
+// 
+.link{ 
+  text-decoration: none;
+  color: rgb(133, 77, 77); 
+  padding-right: 130px; 
+ } 
+
+.services{
+  padding-top: 10px;
+  padding-left: 200px;
+  height: 200px;
+  width: 350px;
+  align-items: center;
+  
+}
+.home-bg{
+  position: absolute;
+  margin: 0px;
+  background-image: url('https://res.cloudinary.com/demo/image/upload/shoes_orig.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: white;
+  height: 950px;
+  width: 100%;
+}
+.bg-img{
+  background-color: grey;
+  height: 900px;
+  width: 100%;
+}
+
+#delivery{
+  color:rebeccapurple;
+  height: 100px;
+  width: 100px;
+}
+#return-policy{
+  color:rebeccapurple;
+  height: 100px;
+  width: 100px;
+}
+#crypto-transaction{
+  color:rebeccapurple;
+  height: 100px;
+  width: 100px;
+}
+#services{
+  background-color:rgba(236, 217, 217, 0.253);
+  box-shadow: 0px 2px 4px #888888 ;
+  display: flex;
+  justify-content:space-evenly;
+  margin: 450px 100px 0px 100px; 
+  height: 200px; 
+}
+
+.service-text{
+  color: black;
+  width: 250px;
+  padding-right: 30px ;
+  line-height: 1.6px;
+
+}
+
+.well{ 
+  color:rgb(133, 77, 77);
+  font-size: 25px;
+  justify-content: space-evenly;  
+  font-style: italic;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  padding: 250px 30px 0px 870px;
+  
+}
+.shop-detail{
+  line-height: 33px;
+  width: 80%;
+  padding: 20px 0px 0px 0px;
+  font-size: 20px;   
+}
+#h1{
+  color:rgb(133, 77, 77);
+  margin-top: 70px;
+  margin-bottom: 100px;
+  font-size: 60px;
+  font-family:fantasy;
+}
+.product-container{
+
+  background-color: rgba(247, 237, 228, 0.466);
+  /* border: 2px solid red; */
+  display: inline-block;
+}
+.h3{
+  padding: 20px 20px 0px 100px;
+  position: absolute;
+  text-decoration: none;
+  font-size: 24px;
+  color: rgb(133, 77, 77);
+}
+
+.product-item{
+  
+  background-color: rgba(236, 217, 217, 0.253);
+  display: flex;
+}
+.product-desc-con{
+  color: black;
+  box-shadow: 0px 2px 2px;
+  margin-top: 80px;  
+  background-color: rgba(236, 217, 217, 0.103);
+  height: 500px;
+  width: 400px;
+  padding-left: 50px;
+  padding-bottom: 30px;
+  padding-right: 50px; 
+  align-items: center;
+  justify-content: center;
+}
+.product-desc{
+  padding-left: 10px;
+}
+#price-con{
+  color: black;
+  
+  line-height: 2.6px; 
+}
+#price{
+  font-size: 20px;
+  padding-left: 50px;
+}
+#price-detail{
+  opacity: 0.5;
+}
+#button{
+  color:rgb(133, 77, 77);
+  margin-left: 0px;
+  margin-right: 50px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  padding: 8px 40px 8px 40px;
+  border: 2px solid rgb(128, 122, 122);
+  border-radius: 22px 22px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+}
+#button:hover{
+  background-color:rgb(133, 77, 77);
+  color: white;
+}
+.detail{
+  color:black;
+  position: relative;
+  /* top: 10px; */
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 20px;
+}
+.h2{
+  font-size: 30px;
+  font-weight: bold;
+  color:rgb(133, 77, 77);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.product-detail{
+  margin-top: 80px;
+}
