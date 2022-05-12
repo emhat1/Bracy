@@ -11,23 +11,17 @@ const postSchema = new Schema(
       type: Date,
       default: Date.now,
     },
-        tags: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'Tag',
-      },
-    ],
     tags: [
         {
           type: Schema.Types.ObjectId,
           ref: 'Tag',
         },
       ],
-       text: {
-      type: String,
-      minLength: 15,
-      maxLength: 500,
-    },
+      text: {
+        type: String,
+        minLength: 15,
+        maxLength: 500,
+      },
   },
   {
     toJSON: {
