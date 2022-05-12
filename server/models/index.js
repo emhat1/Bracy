@@ -1,5 +1,4 @@
 const Rescue = require('./Rescue');
-const Post = require('./Post');
-const Comment = require('.Comments')
+const Post = require('./Thought');
 
-module.exports = { Rescue, Post, Comments };
+module.exports = { Rescue, Thought };

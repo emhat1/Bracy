@@ -4,84 +4,39 @@ import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
 import { ADD_USER } from '../utils/mutations';
 
-function Signup(props) {
-  const [formState, setFormState] = useState({ email: '', password: '' });
-  const [addUser] = useMutation(ADD_USER);
+import React from 'react';
+import './App.css';
 
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-    const mutationResponse = await addUser({
-      variables: {
-        email: formState.email,
-        password: formState.password,
-        firstName: formState.givenName,
-        lastName: formState.surname,
-      },
-    });
-    const token = mutationResponse.data.addUser.token;
-    Auth.login(token);
-  };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
-  };
-
-  return (
-    <div className="container my-1">
-      <Link to="/login">← Go to Login</Link>
-
-      <h2>Signup</h2>
-      <form onSubmit={handleFormSubmit}>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="firstName">First Name :</label>
-          <input
-            placeholder="Joe"
-            name="FirstName"
-            type="FirstName"
-            id="FirstName"
-            onChange={handleChange}
-          />
+export default function Information() {
+    return (
+        <div className='information'>
+            <h1 className='h1'>Squishy Animals</h1>
+            <p className='page_detail' >
+               <h1>Bracycephalic animals</h1>
+            </p>
+            <p>
+              Bracycephalic animals are those typically with squishy flat faces.  Bracycephalic cats include exotic shorthairs and Persians.  Bracycephalic dogs include bulldogs.
+            </p>
+            <p>
+              A number of medical conditions are seen at a much higher rate in these animals including:
+                <ul>
+                  <li> narrowed nasal passages, causing breathing difficulties and frequent sinus infections</li>
+                  <li> bulging eyes (proptosis), leading in increased eye iritation, injury and discharge</li>
+                </ul>
+            </p>
+            <p></p>
+            <h1>Fold animals</h1>
+            <p>
+                The most commonly recognised fold animal is the Scottish Fold cat, with its pulled-down ears.  
+            </p>
+            <p>
+            Unfortunately the genes that give this appearance affect collagen on other areas of the body, causing issues such as:
+            <ul>
+              <li> early onset arthritis, particularly in the back legs</li>
+              <li> chronic back pain and reduced mobility</li>
+            </ul>
+            </p>
         </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="surname">Surname :</label>
-          <input
-            placeholder="Bloggs"
-            name="lastName"
-            type="lastName"
-            id="lastName"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="email">Email address :</label>
-          <input
-            placeholder="youremail@test.com"
-            name="email"
-            type="email"
-            id="email"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="pwd">Password :</label>
-          <input
-            placeholder="******"
-            name="password"
-            type="password"
-            id="pwd"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
-        </div>
-      </form>
-    </div>
-  );
+    )
 }
-
-export default Signup;

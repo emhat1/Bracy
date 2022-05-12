@@ -20,8 +20,6 @@ export default function Home() {
             <p>
                 If you are planning to own an ususual breed such as a Persian cat, a Frenchie, or a Scottish Fold, please be aware of their increased medical needs and try to avoid increasing the demand from breeders for such breeds.  Adopt, don't shop.
             </p>
-            </div>
-               
         </div>
     )
 }
