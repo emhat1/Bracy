@@ -19,7 +19,8 @@ function RouteConfig() {
         <Route path='/rescues' element={<Rescues /> }/>
         <Route path='/messages' element={<Messages /> }/>
         <Route exact path='/login' element={<Login />  }/>
-        <Route path='/signup' element={<Signup /> }/>
+        <Route path='/signUp' element={<Signup /> }/>
+        <Route path='/profile' element={<Profile /> }/>
         <Route path='*' element={<NoMatch /> }/>
 
       </Routes>

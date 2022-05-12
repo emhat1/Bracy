@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const rescueSchema = new mongoose.Schema({
   // Configure individual properties using Schema Types
   title: { type: String, required: true },
-  rescuetype: { type: String, required: true },
+  rescueType: { type: String, required: true },
   suburb: String,
   state: String,
   website: { type: String, required: true },
@@ -22,7 +22,7 @@ const handleError = (err) => console.error(err);
 Rescue.create(
   {
     title: 'Squishies Flat Face Animal Rescue',
-    rescuetype: 'Brachycephalic',
+    rescueType: 'Brachycephalic',
     suburb: 'Wantirna',
     state: 'Victoria',
     website: 'https://www.squishiesrescue.org.au/',
@@ -32,7 +32,7 @@ Rescue.create(
 
 // Create a new instance with required title, rescue type and website properties
 Rescue.create(
-  { title: 'Fakey-Fake The Rescue Place', rescuetype: 'Very cute but very sad animals', website: 'https://stormy-anchorage-52853.herokuapp.com/' },
+  { title: 'Fakey-Fake The Rescue Place', rescueType: 'Very cute but very sad animals', website: 'https://stormy-anchorage-52853.herokuapp.com/' },
   (err) => (err ? handleError(err) : console.log('Created new document'))
 );
 

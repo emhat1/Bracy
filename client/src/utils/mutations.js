@@ -11,7 +11,6 @@ export const LOGIN = gql`
   }
 `;
 
-
 export const ADD_USER = gql`
   mutation addUser(
     $firstName: String!
@@ -33,18 +32,41 @@ export const ADD_USER = gql`
   }
 `;
 
-export const ADD_COMMENT = gql`
-  mutation addComment($thoughtId: ID!, $commentText: String!) {
-    addComment(thoughtId: $thoughtId, commentText: $commentText) {
+export const ADD_POST = gql`
+  mutation addPost($thoughtId: ID!, $postText: String!) {
+    addPost(thoughtId: $thoughtId, postText: $postText) {
       _id
       thoughtText
       thoughtAuthor
       createdAt
       comments {
         _id
-        commentText
+        postText
         createdAt
       }
     }
   }
+`;
+
+export const ADD_RESCUE = gql`
+mutation addRescue(
+  $title: String!
+  $rescueType: String!
+  $suburb: String!
+  $state: String!
+  $website: String!
+) {
+  addRescue(
+    title: $title
+    rescueType: $rescueType
+    suburb: $suburb
+    state: $state
+    website: $website
+  ) {
+    token
+    title {
+      _id
+    }
+  }
+}
 `;
