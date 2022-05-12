@@ -10,15 +10,14 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-import Home from './pages/Home';
-import Detail from './pages/Detail';
-import NoMatch from './pages/NoMatch';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
+import Home from './pages/home';
+import Information from './pages/information';
+import Profile from './pages/profile';
+import NoMatch from './pages/noMatch';
+import Login from './pages/login';
+import Signup from './pages/signUp';
+import Profile from './pages/profile';
 import Nav from './components/Nav';
-import { StoreProvider } from './utils/GlobalState';
-import Success from './pages/Success';
-import OrderHistory from './pages/OrderHistory';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
