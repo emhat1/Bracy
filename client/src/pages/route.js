@@ -3,6 +3,7 @@ import Home from './home';
 import Login from './login';
 import Information from './information';
 import Rescues from './rescues';
+import Profile from './profile';
 import Messages from './messages.js';
 import Signup from './signUp.js';
 import NoMatch from './noMatch.js';
