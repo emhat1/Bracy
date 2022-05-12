@@ -10,6 +10,8 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
+import Header from './components/Header';
+import Footer from './components/Footer';
 import Home from './pages/home';
 import Information from './pages/information';
 import Profile from './pages/profile';
@@ -17,7 +19,6 @@ import NoMatch from './pages/noMatch';
 import Login from './pages/login';
 import Signup from './pages/signUp';
 import Profile from './pages/profile';
-import Nav from './components/Nav';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -41,43 +42,15 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Router>
-        <div>
-          <StoreProvider>
-            <Nav />
-            <Routes>
-              <Route 
-                path="/" 
-                element={<Home />} 
-              />
-              <Route 
-                path="/login" 
-                element={<Login />} 
-              />
-              <Route 
-                path="/signup" 
-                element={<Signup />} 
-              />
-              <Route 
-                path="/success" 
-                element={<Success />} 
-              />
-              <Route 
-                path="/orderHistory" 
-                element={<OrderHistory />} 
-              />
-              <Route 
-                path="/products/:id" 
-                element={<Detail />} 
-              />
-              <Route 
-                path="*" 
-                element={<NoMatch />} 
-              />
-            </Routes>
-          </StoreProvider>
+      <div className="flex-column justify-flex-start min-100-vh">
+        <Header />
+        <div className="container">
+
+
+
         </div>
-      </Router>
+        <Footer />
+      </div>
     </ApolloProvider>
   );
 }
