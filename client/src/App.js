@@ -12,13 +12,15 @@ import { setContext } from '@apollo/client/link/context';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Home from './pages/home';
-import Information from './pages/information';
-import Profile from './pages/profile';
-import NoMatch from './pages/noMatch';
-import Login from './pages/login';
-import Signup from './pages/signUp';
-import Profile from './pages/profile';
+import Home from './components/pages/home';
+import Information from './components/pages/information';
+import Profile from './components/pages/profile';
+import NoMatch from './components/pages/noMatch';
+import Login from './components/pages/login';
+import Signup from './components/pages/signUp';
+import Profile from './components/pages/profile';
+import Rescues from './components/pages/rescues';
+import PortfolioContainer from "./components/PortfolioContainer";
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -56,3 +58,8 @@ function App() {
 }
 
 export default App;
+
+
+
+
+const App = () => <PortfolioContainer />;
