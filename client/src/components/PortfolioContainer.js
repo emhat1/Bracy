@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import NavTabs from './NavTabs';
-import Home from './pages/home';
-import Information from './pages/information';
-import Login from './pages/login';
-import Messages from './pages/messages';
-import Profile from './pages/profile';
-import Signup from './pages/signup';
-import Rescues from './pages/rescues';
+import Home from './pages/Home';
+import Information from './pages/Information';
+import Login from './pages/Login';
+import Messages from './pages/Messages';
+import Profile from './pages/Profile';
+import Signup from './pages/Signup';
+import Rescues from './pages/Rescues';
+import NoMatch from './pages/NoMatch';
 
 export default function PortfolioContainer() {
   const [currentPage, setCurrentPage] = useState('Home');
