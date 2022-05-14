@@ -6,7 +6,7 @@ const NoMatch = () => {
     <div>
       <Jumbotron>
         <h1>I'm sorry, that page can't be found</h1>
-        <img src="../img/SadKitten.png" alt="A sad Persian kitten"
+        <img src="../img/SadKitten.png" alt="A sad Persian kitten"></img>
       </Jumbotron>
     </div>
   );

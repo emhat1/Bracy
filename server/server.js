@@ -56,18 +56,6 @@ const startApolloServer = async (typeDefs, resolvers) => {
   
 // #CALL: the async function to start the server
   startApolloServer(typeDefs, resolvers);
- 
-
-
-
-
-
-
-
-
-
-
-
 
 const express = require('express');
 const db = require('./config/connection');
