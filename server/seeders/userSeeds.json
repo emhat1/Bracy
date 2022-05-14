@@ -1,0 +1,17 @@
+[
+  {
+    "username": "Joe Bloggs",
+    "email": "joeb@animal-lovers.cat",
+    "password": "password01"
+  },
+  {
+    "username": "John Doe",
+    "email": "johnd@animal-lovers.cat",
+    "password": "password02"
+  },
+  {
+    "username": "Chloe Connelly",
+    "email": "chloec@animal-lovers.cat",
+    "password": "password03"
+  }
+]
