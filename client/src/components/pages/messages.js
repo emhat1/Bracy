@@ -2,17 +2,17 @@ import React from 'react';
 // Import the `useQuery()` hook from Apollo Client
 import { useQuery } from '@apollo/client';
 
-import ThoughtList from '../components/ThoughtList';
+import MessageList from '../components/MessageList';
 
 // Import the query we are going to execute from its file
-import { QUERY_THOUGHTS } from '../utils/queries';
+import { QUERY_MESSAGES } from '../utils/queries';
 
 const Home = () => {
   // Execute the query on component load
-  const { loading, data } = useQuery(QUERY_THOUGHTS);
+  const { loading, data } = useQuery(QUERY_MESSAGES);
 
-  // Use optional chaining to check if data exists and if it has a thoughts property. If not, return an empty array to use.
-  const thoughts = data?.thoughts || [];
+  // Use optional chaining to check if data exists and if it has a messages property. If not, return an empty array to use.
+  const messages = data?.messages || [];
 
   return (
     <main>
@@ -22,9 +22,9 @@ const Home = () => {
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <ThoughtList
-              thoughts={thoughts}
-              title="Some Feed for Thought(s)..."
+            <MessageList
+              messages={messages}
+              title="What other people think of the issue ..."
             />
           )}
         </div>
