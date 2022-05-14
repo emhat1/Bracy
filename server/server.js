@@ -11,7 +11,30 @@ const { authMiddleware } = require('./utils/auth')
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 
-const PORT = process.env.PORT || 3001;
+// Setting up Stripe
+// REMEMBER TO PUT IN PROPER SECRET sk-test-etc key before deploying to Heroku!!
+const stripe = require('stripe')('sk_test_blahBLAHblahPSK');
+app.use(express.static('public'));
+
+const YOUR_DOMAIN = 'http://localhost:4242';
+
+app.post('/create-checkout-session', async (req, res) => {
+  const session = await stripe.checkout.sessions.create({
+    line_items: [
+      {
+        // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
+        price: 'pr_10',
+        quantity: 1,
+      },
+    ],
+    mode: 'payment',
+    success_url: `${YOUR_DOMAIN}?success=true`,
+    cancel_url: `${YOUR_DOMAIN}?canceled=true`,
+  });
+
+  res.redirect(303, session.url);
+});
+app.listen(4242, () => console.log('Running on port 4242'));
 
 // Initialise the app variable to the value of express()
 const app = express();

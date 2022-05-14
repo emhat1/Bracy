@@ -1,5 +1,5 @@
 // Importing external dependencies
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {
   ApolloClient,
@@ -45,6 +45,25 @@ const client = new ApolloClient({
 
 // Defining app
 function App() {
+  const [message, setMessage] = useState("");
+  useEffect(() => {
+    // Check to see if this is a redirect back from Checkout
+    const query = new URLSearchParams(window.location.search);
+    if (query.get("success")) {
+      setMessage("Thank you for your donation - you have made an animal's life better");
+    }
+    if (query.get("canceled")) {
+      setMessage(
+        "Donation canceled - feel free to donate at any time"
+      );
+    }
+  }, []);
+  return message ? (
+    <Message message={message} />
+  ) : (
+    <SquishiesDonation />
+  );
+
   return (
     <ApolloProvider client={client}>
       <Router>
@@ -57,27 +76,27 @@ function App() {
                 element={<Home />}
               />
               <Route 
-                path="/login" 
+                path="/Login" 
                 element={<Login />}
               />
               <Route 
-                path="/signup" 
+                path="/Signup" 
                 element={<Signup />}
               />
               <Route 
-                path="/profiles/:username" 
+                path="/Profile/:username" 
                 element={<Profile />}
               />
               <Route 
-                path="/messages" 
+                path="/Messages" 
                 element={<Messages />}
               />
               <Route 
-                path="/rescues" 
+                path="/Rescues" 
                 element={<Rescues />}
               />
               <Route 
-                path="/information" 
+                path="/Information" 
                 element={<Information />}
               />
             </Routes>
