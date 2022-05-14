@@ -1,6 +1,3 @@
-// Setting styling
-import './App.css';
-
 // Importing external dependencies
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';

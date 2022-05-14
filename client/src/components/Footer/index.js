@@ -15,7 +15,7 @@ const Footer = () => {
           >
             ❤️
           </span>{' '}
-          to Squishies Flat-Faced Animal Rescue.
+          to Squishies Flat-Faced Animal Rescue
         </h4> 
         <form action="/create-checkout-session" method="POST">
           <button type="submit">
