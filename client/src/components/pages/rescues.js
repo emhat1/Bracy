@@ -1,19 +1,25 @@
 //Importing external dependencies
-import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
-import { Link } from 'react-router-dom';
-import mongoose from 'mongoose';
+import React from 'react';
+import { useQuery } from '@apollo/client';
 
 // Importing internal dependencies
 import Card from '../Card';
+import { QUERY_RESCUES } from '../../utils/queries';
 
 export default function Rescues() {
+    const { loading, data } = useQuery(QUERY_RESCUES);
+
+    if ( loading ) {
+        return 'loading...';
+    }
+
     return (
         <div className='rescues'>
             <h1 className='h1'>Specialised Rescue Organisations</h1>
             <p className='page_detail' ></p>
-            <Card title={Rescues.title} description={Rescues.rescueType} suburb={Rescues.suburb}  state={Rescues.state} website={Rescues.website}/>
-
+            {data?.rescues?.map((rescue,i) => {
+                return <Card title={rescue.title} description={rescue.rescueType} suburb={rescue.suburb}  state={rescue.state} website={rescue.website}/> 
+            })}
         </div>
     )
 }

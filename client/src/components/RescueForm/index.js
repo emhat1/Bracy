@@ -33,11 +33,11 @@ function Rescue(props) {
     Auth.login(token);
   };
 
-  const handleInputChange = (e) => {
+ const handleInputChange = (e) => {
     // Getting the value and name of the input which triggered the change
-    const { target } = e;
-    const inputType = target.name;
-    const inputValue = target.value;
+    //const { target } = e;
+    //const inputType = target.name;
+    //const inputValue = target.value;
   };
 
   return (

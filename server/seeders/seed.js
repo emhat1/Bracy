@@ -5,11 +5,7 @@ const messageSeeds = require('./messageSeeds.json');
 
 db.once('open', async () => {
   try {
-    await Message.deleteMany({});
-    await User.deleteMany({});
-
     await User.create(userSeeds);
-
     for (let i = 0; i < messageSeeds.length; i++) {
       const { _id, messageAuthor } = await Message.create(messageSeeds[i]);
       const user = await User.findOneAndUpdate(

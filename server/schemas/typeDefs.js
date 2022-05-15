@@ -17,6 +17,12 @@ const typeDefs = gql`
     website: String
   }
 
+  type User {
+    _id: ID!
+    username: String!
+    email: String!
+  }
+
   type Query {
     messages: [Message]!
     message(messageId: ID!): Message

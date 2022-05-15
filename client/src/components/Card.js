@@ -6,12 +6,6 @@ export default function Card(props) {
     width: '18rem',
   };
 
-  // Helper function that generates a random width for our placeholder images
-  const randomWidth = () => {
-    const number = Math.random() * (300 - 200) + 200;
-    return number.toString().split('.')[0];
-  };
-
   return (
     <div className="container">
       <div className="card" style={cardStyle}>
@@ -21,7 +15,7 @@ export default function Card(props) {
           <p className="card-text">Suburb: {props.suburb}</p>
           <p className="card-text">State: {props.state}</p>
           <p className="card-text">Website: {props.website}</p>
-          <a href="#" className="btn btn-primary">
+          <a href="{props.website}" className="btn btn-primary">
             Go To Website {props.website}
           </a>
         </div>

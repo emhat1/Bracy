@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import mongoose from 'mongoose';
 
 const RescueList = ({
-  messages,
+/*   messages,
   title,
   showTitle = true,
   showUsername = true,
@@ -10,7 +11,7 @@ const RescueList = ({
   if (!messages.length) {
     return <h3>No Messages Yet</h3>;
   }
-
+ */
   return (
     <div>
       {showTitle && <h3>{title}</h3>}

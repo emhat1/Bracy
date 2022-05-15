@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // Importing internal dependencies
-import Auth from '../../utils/auth';
+import Auth from '../../utils/auth'; 
 
 
 const Header = () => {

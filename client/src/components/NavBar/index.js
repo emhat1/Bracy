@@ -1,9 +1,13 @@
+// Importing external dependencies
 import React from 'react';
 
-// Here we are using object destructuring assignment to pluck off our variables from the props object
-// We assign them to their own variable names
+// Importing internal dependencies
+import Auth from '../../utils/auth';
+
+
 function NavTabs({ currentPage, handlePageChange }) {
   return (
+    
     <ul className="nav nav-tabs">
       <li className="nav-item">
         <a
@@ -46,6 +50,7 @@ function NavTabs({ currentPage, handlePageChange }) {
           Rescue Groups
         </a>
       </li>
+
       <li className="nav-item">
         <a
           href="#login"
@@ -66,6 +71,9 @@ function NavTabs({ currentPage, handlePageChange }) {
           Sign-Up
         </a>
       </li>
+
+
+
       <li className="nav-item">
         <a
           href="#profile"
