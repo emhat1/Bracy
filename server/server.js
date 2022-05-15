@@ -54,17 +54,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // If in production, serve client/build as static assets
-if (process.env.NODE_ENV === 'production') {
+//if (process.env.NODE_ENV === 'production') {
   console.log('asd')
-  app.use(express.static(path.join(__dirname, '../client/build')));
-}
+  app.use(express.static(path.join(__dirname, '../client/public')));
+// }
 
- // #GET Route for homepage
-// app.use('/api', require('./api.routes'));
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/build/index.html'));
-});
+// app.use( express.static( '../client/public/') );
+
+/* app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/public/index.html'));
+}); */
 
 // #CREATE: a new instance of an Apollo server with the GraphQL schema
 const startApolloServer = async (typeDefs, resolvers) => {

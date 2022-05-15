@@ -7,6 +7,8 @@ import { QUERY_MESSAGE } from '../../utils/queries';
 
 import Auth from '../../utils/auth';
 
+import { checkPassword, validateEmail } from '../../utils/helpers';
+
 const MessageForm = () => {
   const [messageText, setMessageText] = useState('');
 
