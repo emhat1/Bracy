@@ -42,8 +42,6 @@ function Rescue(props) {
 
   return (
     <div className="container my-1">
-      <Link to="/login">Go to Login</Link>
-
       <h2>Add a Rescue Organisation</h2>
       <form onSubmit={handleFormSubmit}>
         <div className="flex-row space-between my-2">

@@ -6,7 +6,7 @@ import { setContext } from '@apollo/client/link/context';
 
 // Importing internal dependencies
 import Home from './components/pages/Home';
-/*import Information from './components/pages/Information';
+import Information from './components/pages/Information';
 import NoMatch from './components/pages/NoMatch';
 import Login from './components/pages/Login';
 import Signup from './components/pages/Signup';
@@ -14,11 +14,11 @@ import Messages from './components/pages/Messages';
 import Profile from './components/pages/Profile';
 import Rescues from './components/pages/Rescues';
 import Header from './components/Header';
-import Footer from './components/Footer';*/
+import Footer from './components/Footer';
 
 
-// import PortfolioContainer from './components';
-// import Nav from './components/Nav';
+//import PortfolioContainer from './components';
+import NavBar from './components/NavBar';
 
 //Connecting to database
 const httpLink = createHttpLink({
@@ -94,17 +94,23 @@ const Note = ({ note }) => (
 
 
 function App() {
-  return (
-    //<ApolloProvider client={client}>
+/*   return (
+    <ApolloProvider client={client}>
       <BrowserRouter>
-        <Home />
+      <div className="flex-column justify-flex-start min-100-vh">
+          <Header />
+          <div className="container">
+            <Routes>
+              <Route 
+                path="/" 
+                element={<Home />}
       </BrowserRouter>
    //</ApolloProvider>
-  );
-/*
+  ); */
+
   return (
     <ApolloProvider client={client}>
-      <Router>
+      <BrowserRouter>
         <div className="flex-column justify-flex-start min-100-vh">
           <Header />
           <div className="container">
@@ -122,7 +128,7 @@ function App() {
                 element={<Signup />}
               />
               <Route 
-                path="/Profile/:username" 
+                path="/Profile" 
                 element={<Profile />}
               />
               <Route 
@@ -141,9 +147,9 @@ function App() {
           </div>
           <Footer />
         </div>
-      </Router>
+      </BrowserRouter>
     </ApolloProvider>
-  )*/
+  )
 };
 
 export default App;
