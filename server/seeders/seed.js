@@ -1,15 +1,15 @@
 const db = require('../config/connection');
-const { User, Message } = require('../models');
+const { Users, Message, Rescue } = require('../models');
 const userSeeds = require('./userSeeds.json');
 const messageSeeds = require('./messageSeeds.json');
 
 db.once('open', async () => {
   try {
-    await User.create(userSeeds);
+    await Users.create(userSeeds);
     for (let i = 0; i < messageSeeds.length; i++) {
-      const { _id, messageAuthor } = await Message.create(messageSeeds[i]);
-      const user = await User.findOneAndUpdate(
-        { username: messageAuthor },
+      const { _id, email } = await Message.create(messageSeeds[i]);
+      const user = await Users.findOneAndUpdate(
+        { email: email },
         {
           $addToSet: {
             messages: _id,
