@@ -11,18 +11,24 @@ import { checkPassword, validateEmail } from '../../utils/helpers';
 function Signup(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [addUser] = useMutation(ADD_USER);
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-// Check validity of email address and password
-    if (!validateEmail(email) || !userName) {
-      setErrorMessage('This does not  look like a valid email address');
-       return;
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+
+    // Check validity of email and password formats
+    if (!validateEmail(email)) {
+      setErrorMessage('This does not look like a valid email address.  Please try again');
+      return;
     }
     if (!checkPassword(password)) {
       setErrorMessage(
-        `Choose a more secure password for the account: ${userName}`
+        `Please choose a more secure password`
       );
       return;
+    }
 
     const mutationResponse = await addUser({
       variables: {
@@ -36,12 +42,18 @@ function Signup(props) {
     Auth.login(token);
   };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
+  const handleInputChange = (e) => {
+    // Getting the value and name of the input which triggered the change
+    const { target } = e;
+    const inputType = target.name;
+    const inputValue = target.value;
+
+    // Based on the input type, we set the state of either email, username, and password
+    if (inputType === 'email') {
+      setEmail(inputValue);
+    } else {
+      setPassword(inputValue);
+    }
   };
 
   return (
@@ -51,43 +63,43 @@ function Signup(props) {
       <h2>Signup</h2>
       <form onSubmit={handleFormSubmit}>
         <div className="flex-row space-between my-2">
-          <label htmlFor="firstName">First Name :</label>
+          <label htmlFor="firstName">First Name:</label>
           <input
             placeholder="Joe"
             name="FirstName"
             type="FirstName"
             id="FirstName"
-            onChange={handleChange}
+            onChange={handleInputChange}
           />
         </div>
         <div className="flex-row space-between my-2">
-          <label htmlFor="LastName">Surname :</label>
+          <label htmlFor="LastName">Surname:</label>
           <input
             placeholder="Bloggs"
             name="lastName"
             type="lastName"
             id="lastName"
-            onChange={handleChange}
+            onChange={handleInputChange}
           />
         </div>
         <div className="flex-row space-between my-2">
-          <label htmlFor="email">Email address :</label>
+          <label htmlFor="email">Email address:</label>
           <input
             placeholder="youremail@test.com"
             name="email"
             type="email"
             id="email"
-            onChange={handleChange}
+            onChange={handleInputChange}
           />
         </div>
         <div className="flex-row space-between my-2">
-          <label htmlFor="pwd">Password :</label>
+          <label htmlFor="pwd">Password:</label>
           <input
             placeholder="******"
             name="password"
             type="password"
             id="pwd"
-            onChange={handleChange}
+            onChange={handleInputChange}
           />
         </div>
         <div className="flex-row flex-end">

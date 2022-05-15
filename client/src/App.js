@@ -5,15 +5,18 @@ import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@ap
 import { setContext } from '@apollo/client/link/context';
 
 // Importing internal dependencies
-import Home from './pages/Home';
-import Information from './pages/Information';
-import NoMatch from './pages/NoMatch';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
-import Messages from './pages/Messages';
-import Profile from './pages/Profile';
-import Rescues from './pages/Rescues';
+import Home from './components/pages/Home';
+import Information from './components/pages/Information';
+import NoMatch from './components/pages/NoMatch';
+import Login from './components/pages/Login';
+import Signup from './components/pages/Signup';
+import Messages from './components/pages/Messages';
+import Profile from './components/pages/Profile';
+import Rescues from './components/pages/Rescues';
+import "./App.css";
 
+
+// import PortfolioContainer from './components';
 // import Nav from './components/Nav';
 
 //Connecting to database
@@ -21,7 +24,7 @@ const httpLink = createHttpLink({
   uri: '/graphql',
 });
 
-// COOKIES! OMNOMNOM
+// Setting tokens
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('id_token');
   return {
@@ -38,27 +41,58 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-// Defining app
-function App() {
-  const [message, setMessage] = useState("");
-  useEffect(() => {
-    // Check to see if this is a redirect back from Checkout
-    const query = new URLSearchParams(window.location.search);
-    if (query.get("success")) {
-      setMessage("Thank you for your donation - you have made an animal's life better");
-    }
-    if (query.get("canceled")) {
-      setMessage(
-        "Donation canceled - feel free to donate at any time"
-      );
-    }
-  }, []);
-  return message ? (
-    <Message message={message} />
-  ) : (
-    <SquishiesDonation />
-  );
+// Stripe
+const Donation = () => (
+  <section>
+    <div className="donation">
+      <img
+        src="https://res.cloudinary.com/petrescue/image/upload/h_248,w_333,c_pad/petrescue-production-s3/uploads/group/avatar/10033/Squishies_Flat_Faced_Animal_Rescue_Logo.png"
+        alt="Squishies Flat Faced Animal Rescue"
+      />
+      <div className="description">
+      <h3>A $10 donation to Squishies Flat Faced Animal Rescue</h3>
+      </div>
+    </div>
+    <form action="/create-checkout-session" method="POST">
+      <button type="submit">
+        Donate
+      </button>
+    </form>
+  </section>
+);
 
+const Note = ({ note }) => (
+  <section>
+    <p>{note}</p>
+  </section>
+);
+
+// export default function App() {
+// const [note, setNote] = useState("");
+//  useEffect(() => {
+//    // Check to see if this is a redirect back from Checkout
+//    const query = new URLSearchParams(window.location.search);
+//
+//    if (query.get("success")) {
+//      setNote("Donation made! Thank you for improving an animal's life");
+//    }
+//
+//    if (query.get("canceled")) {
+//      setNote(
+//        "Donation canceled - feel free to donate when you're ready."
+//      );
+//    }
+//  }, []);
+//
+//  return note ? (
+//    <Note note={note} />
+//  ) : (
+//    <Donation />
+//  );
+
+
+
+function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
@@ -100,8 +134,8 @@ function App() {
         </div>
       </Router>
     </ApolloProvider>
-  );
-}
+  )
+};
 
 export default App;
 
