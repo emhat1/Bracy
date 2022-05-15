@@ -1,0 +1,14 @@
+[
+    {
+        "title": "Squishies Flat Face Animal Rescue",
+        "rescueType": "Brachycephalic",
+        "suburb": "Wantirna",
+        "state": "Victoria",
+        "website": "https://www.squishiesrescue.org.au/"
+    },
+    {
+        "title": "Fakey-Fake The Rescue Place",
+        "rescueType": "Very cute but very sad animals",
+        "website": "https://stormy-anchorage-52853.herokuapp.com/"
+    }
+]

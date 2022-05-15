@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Message } = require('../models');
+const { Users, Message, Rescue } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -16,6 +16,9 @@ const resolvers = {
     },
     message: async (parent, { messageId }) => {
       return Message.findOne({ _id: messageId });
+    },
+    rescues: async (parent, {}) => {
+      return await Rescue.find( { } );
     },
   },
 };
