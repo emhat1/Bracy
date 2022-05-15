@@ -18,7 +18,12 @@ export default function Rescues() {
             <h1 className='h1'>Specialised Rescue Organisations</h1>
             <p className='page_detail' ></p>
             {data?.rescues?.map((rescue,i) => {
-                return <Card title={rescue.title} description={rescue.rescueType} suburb={rescue.suburb}  state={rescue.state} website={rescue.website}/> 
+                return <Card
+                    title={rescue.title}
+                    rescueType={rescue.rescueType}
+                    suburb={rescue.suburb}
+                    state={rescue.state}
+                    website={rescue.website} />
             })}
         </div>
     )
