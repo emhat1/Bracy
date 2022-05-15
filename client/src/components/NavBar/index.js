@@ -96,6 +96,11 @@ function NavTabs({ currentPage, handlePageChange }) {
         </NavLink>
       </li>
       <li className="nav-item">
+        <NavLink to="/Rescues" className={( { isActive } ) => isActive ? 'nav-link active' : 'nav-link'}>
+          Rescue Organisations
+        </NavLink>
+      </li>
+      <li className="nav-item">
         <NavLink to="/Login" className={( { isActive } ) => isActive ? 'nav-link active' : 'nav-link'}>
           Login
         </NavLink>

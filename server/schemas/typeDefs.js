@@ -8,6 +8,11 @@ const typeDefs = gql`
     createdAt: String
   }
 
+  type Auth {
+    token: ID!
+    user: User
+  }
+
   type Rescue {
     _id: ID
     title: String
@@ -19,7 +24,9 @@ const typeDefs = gql`
 
   type User {
     _id: ID!
-    username: String!
+    firstName: String!
+    lastName: String!
+    password: String!
     email: String!
   }
 
@@ -27,6 +34,7 @@ const typeDefs = gql`
     messages: [Message]!
     message(messageId: ID!): Message
     rescues: [Rescue]!
+    users: [User]!
   }
 
   type Mutation {
@@ -34,6 +42,7 @@ const typeDefs = gql`
     removeMessage(MessageId: ID!): Message
     addRescue(title: String!, rescueType: String!, suburb: String!, state: String!, website: String!): Rescue
     removeRescue (RescueId: ID!): Rescue
+    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
   }
 `;
 

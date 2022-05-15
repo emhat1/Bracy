@@ -164,7 +164,8 @@ function App() {
             <Route exact path='/Messages' element={<Messages />} />
             <Route exact path='/Rescues' element={<Rescues />} />
             <Route exact path='/NoMatch' element={<NoMatch />} />
-            <Route exact path='/login' element={<Login />} />
+            <Route exact path='/Login' element={<Login />} />
+            <Route exact path='/Signup' element={<Signup />} />
             <Route exact path='/Profile' element={Auth.loggedIn() ? <Profile /> : <Navigate replace to='/'/>} />
           </Routes>
       </Router>

@@ -9,10 +9,12 @@ import { ADD_USER } from '../../utils/mutations';
 import { checkPassword, validateEmail } from '../../utils/helpers';
 
 function Signup(props) {
-  const [formState, setFormState] = useState({ email: '', password: '' });
+/*   const [formState, setFormState] = useState({ email: '', password: '' }); */
   const [addUser] = useMutation(ADD_USER);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
   const handleFormSubmit = async(e) => {
@@ -32,12 +34,13 @@ function Signup(props) {
 
     const mutationResponse = await addUser({
       variables: {
-        email: formState.email,
-        password: formState.password,
-        firstName: formState.firstName,
-        lastName: formState.lastName,
+        email: email,
+        password: password,
+        firstName: firstName,
+        lastName: lastName,
       },
     });
+    console.log( mutationResponse );
     const token = mutationResponse.data.addUser.token;
     Auth.login(token);
   };
@@ -51,8 +54,12 @@ function Signup(props) {
     // Based on the input type, we set the state of either email, username, and password
     if (inputType === 'email') {
       setEmail(inputValue);
-    } else {
+    } else if (inputType === 'password') {
       setPassword(inputValue);
+    } else if (inputType === 'firstName') {
+      setFirstName(inputValue);
+    } else if ( inputType === 'lastName') {
+      setLastName( inputValue );
     }
   };
 
@@ -64,7 +71,7 @@ function Signup(props) {
           <label htmlFor="firstName">First Name:</label>
           <input
             placeholder="Joe"
-            name="FirstName"
+            name="firstName"
             type="FirstName"
             id="FirstName"
             onChange={handleInputChange}

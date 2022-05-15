@@ -33,7 +33,7 @@ const MessageForm = () => {
       const { data } = await addMessage({
         variables: {
           messageText,
-          messageAuthor: Auth.getProfile().data.username,
+          messageAuthor: Auth.getProfile().data.firstName,
         },
       });
 

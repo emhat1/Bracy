@@ -1,16 +1,19 @@
 [
   {
-    "username": "Joe Bloggs",
+    "firstName": "Joe",
+    "lastName": "Bloggs",
     "email": "joeb@animal-lovers.cat",
     "password": "password01"
   },
   {
-    "username": "John Doe",
+    "firstName": "John",
+    "lastName": "Doe",
     "email": "johnd@animal-lovers.cat",
     "password": "password02"
   },
   {
-    "username": "Chloe Connelly",
+    "firstName": "Chloe",
+    "lastName": "Connelly",
     "email": "chloec@animal-lovers.cat",
     "password": "password03"
   }
