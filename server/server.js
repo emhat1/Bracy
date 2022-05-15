@@ -15,6 +15,8 @@ const db = require('./config/connection');
 // Initialise the app variable to the value of express()
 const app = express();
 
+const PORT = 1984;
+
 // Setting up Stripe
 // REMEMBER TO PUT IN PROPER SECRET sk-test-etc key before deploying to Heroku!!
 const stripe = require('stripe')('sk_test_blahBLAHblahPSK');
@@ -58,7 +60,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
  // #GET Route for homepage
-app.use('/api', require('./api.routes'));
+// app.use('/api', require('./api.routes'));
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
@@ -79,10 +81,11 @@ const startApolloServer = async (typeDefs, resolvers) => {
 
 // call the async function to start the server
 startApolloServer(typeDefs, resolvers);
-
+/* 
 // connect databases
 db.once('open', () => {
   app.listen(PORT, () => {
     console.log(`API server running on port ${PORT}!`);
   });
 });
+ */
