@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+/* import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import Auth from '../utils/auth';
+import Auth from '../../utils/auth';
 import { StyledNavbar } from './styles/Navbar.styled';
 
 export default function Navbar() {
@@ -67,8 +67,8 @@ export default function Navbar() {
     );
 }
 
-
-/* // Importing external dependencies
+ */
+// Importing external dependencies
 import React from 'react';
 
 // Importing internal dependencies
@@ -159,4 +159,3 @@ function NavTabs({ currentPage, handlePageChange }) {
 }
 
 export default NavTabs;
- */

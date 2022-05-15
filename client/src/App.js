@@ -16,9 +16,10 @@ import Profile from './components/pages/Profile';
 import Rescues from './components/pages/Rescues';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import MessageForm from '.components/MessageForm';
-import RescueForm from '.components/RescueForm';
+import MessageForm from './components/MessageForm';
+import RescueForm from './components/RescueForm';
 import NavBar from './components/NavBar';
+import Auth from './utils/auth';
 
 //Connecting to database
 const httpLink = createHttpLink({
