@@ -6,7 +6,7 @@ import { useMutation } from '@apollo/client';
 
 export default function Information() {
     return (
-        <div className='information'>
+        <div className='information'><h5>
             <p className='page_detail' >
                <h1>Bracycephalic animals</h1>
             </p>
@@ -31,7 +31,7 @@ export default function Information() {
               <li> early onset arthritis, particularly in the back legs</li>
               <li> chronic back pain and reduced mobility</li>
             </ul>
-            </p>
+            </p></h5>
         </div>
     )
 }

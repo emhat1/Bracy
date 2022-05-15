@@ -4,8 +4,8 @@ import './App.css';
 
 export default function Home() {
     return (
-        <div className='home'>
-             <p className='page_detail' >
+        <div className='home'><h5>
+            <p className='page_detail'>
                 In today's world of Instagram and SnapChat, there is an increasing focus on particularly photogenic and/or funny-looking pets.
             </p>
             <p></p>
@@ -18,7 +18,7 @@ export default function Home() {
             <p></p>
             <p>
                 If you are planning to own an ususual breed such as a Persian cat, a Frenchie, or a Scottish Fold, please be aware of their increased medical needs and try to avoid increasing the demand from breeders for such breeds.  Adopt, don't shop.
-            </p>
+            </p></h5>
         </div>
     )
 }
