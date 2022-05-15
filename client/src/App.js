@@ -156,6 +156,8 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
+        <Header />
+          <NavBar />
           <Routes>
             <Route exact path='/' element={<Home props/>} />
             <Route exact path='/Information' element={<Information />} />
