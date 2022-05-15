@@ -1,10 +1,15 @@
+// Importing external dependencies
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+
+// Importing internal dependencies
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { checkPassword, validateEmail } from '../../utils/helpers';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
     <App />

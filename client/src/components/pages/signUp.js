@@ -1,21 +1,35 @@
+// Import external dependencies
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
+
+// Import internal dependencies
 import Auth from '../utils/auth';
 import { ADD_USER } from '../utils/mutations';
+import { checkPassword, validateEmail } from '../../utils/helpers';
 
 function Signup(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [addUser] = useMutation(ADD_USER);
-
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+// Check validity of email address and password
+    if (!validateEmail(email) || !userName) {
+      setErrorMessage('This does not  look like a valid email address');
+       return;
+    }
+    if (!checkPassword(password)) {
+      setErrorMessage(
+        `Choose a more secure password for the account: ${userName}`
+      );
+      return;
+
     const mutationResponse = await addUser({
       variables: {
         email: formState.email,
         password: formState.password,
-        firstName: formState.givenName,
-        lastName: formState.surname,
+        firstName: formState.firstName,
+        lastName: formState.lastName,
       },
     });
     const token = mutationResponse.data.addUser.token;
@@ -47,7 +61,7 @@ function Signup(props) {
           />
         </div>
         <div className="flex-row space-between my-2">
-          <label htmlFor="surname">Surname :</label>
+          <label htmlFor="LastName">Surname :</label>
           <input
             placeholder="Bloggs"
             name="lastName"

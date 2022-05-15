@@ -9,8 +9,6 @@ const rescueSchema = new mongoose.Schema({
   suburb: String,
   state: String,
   website: { type: String, required: true },
-  // Use built in date method to get current date
-  lastAccessed: { type: Date, default: Date.now },
 });
 
 // Using mongoose.model() to compile a model based on the schema 'rescueSchema'
