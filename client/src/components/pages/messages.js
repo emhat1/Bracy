@@ -7,7 +7,7 @@ import MessageList from '../components/MessageList';
 // Import the query we are going to execute from its file
 import { QUERY_MESSAGES } from '../utils/queries';
 
-const Home = () => {
+const Messages = () => {
   // Execute the query on component load
   const { loading, data } = useQuery(QUERY_MESSAGES);
 
@@ -33,4 +33,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Messages;

@@ -3,14 +3,10 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
 
-import React from 'react';
-import './App.css';
-
 
 export default function Information() {
     return (
         <div className='information'>
-            <h1 className='h1'>Squishy Animals</h1>
             <p className='page_detail' >
                <h1>Bracycephalic animals</h1>
             </p>

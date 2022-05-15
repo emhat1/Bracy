@@ -1,3 +1,4 @@
+//Importing external dependencies
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { Link } from 'react-router-dom';
@@ -13,3 +14,4 @@ export default function Rescues() {
         </div>
     )
 }
+
