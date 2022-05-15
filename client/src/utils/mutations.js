@@ -39,11 +39,6 @@ export const ADD_MESSAGE = gql`
       messageText
       messageAuthor
       createdAt
-      comments {
-        _id
-        postText
-        createdAt
-      }
     }
   }
 `;

@@ -13,7 +13,7 @@ const MessageForm = () => {
   const [messageText, setMessageText] = useState('');
   const [characterCount, setCharacterCount] = useState(0);
 
-  const [addMessage, { error }] = useMutation(ADD_MESSAGE, {
+  const [addMessage, { error }] = useMutation(ADD_MESSAGE);/* , {
     update(cache, { data: { addMessage } }) {
       try {
         const { messages } = cache.readQuery({ query: QUERY_MESSAGE });
@@ -25,7 +25,7 @@ const MessageForm = () => {
       } catch (e) {
         console.error(e);
       }
-    
+     */
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -73,7 +73,7 @@ const MessageForm = () => {
               <textarea
                 name="messageText"
                 placeholder="Here's a new thought..."
-                value={thoughtText}
+                value={messageText}
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}

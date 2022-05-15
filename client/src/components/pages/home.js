@@ -1,6 +1,4 @@
 import React from 'react';
-/* import './App.css'; */
-
 
 export default function Home() {
     return (
@@ -17,7 +15,10 @@ export default function Home() {
             </p>
             <p></p>
             <p>
-                If you are planning to own an ususual breed such as a Persian cat, a Frenchie, or a Scottish Fold, please be aware of their increased medical needs and try to avoid increasing the demand from breeders for such breeds.  Adopt, don't shop.
+                If you are planning to own an ususual breed such as a Persian cat, a Frenchie, or a Scottish Fold, please be aware of their increased medical needs and try to avoid increasing the demand from breeders for such breeds.
+            </p>
+            <p>
+                Adopt, don't shop.
             </p></h5>
         </div>
     )

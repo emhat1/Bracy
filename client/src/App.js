@@ -1,12 +1,12 @@
 // Importing external dependencies
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
 // Importing internal dependencies
 import Home from './components/pages/Home';
-import Information from './components/pages/Information';
+/*import Information from './components/pages/Information';
 import NoMatch from './components/pages/NoMatch';
 import Login from './components/pages/Login';
 import Signup from './components/pages/Signup';
@@ -14,7 +14,7 @@ import Messages from './components/pages/Messages';
 import Profile from './components/pages/Profile';
 import Rescues from './components/pages/Rescues';
 import Header from './components/Header';
-import Footer from './components/Footer';
+import Footer from './components/Footer';*/
 
 
 // import PortfolioContainer from './components';
@@ -43,7 +43,7 @@ const client = new ApolloClient({
 });
 
 // Stripe
-const Donation = () => (
+/*const Donation = () => (
   <section>
     <div className="donation">
       <img
@@ -66,7 +66,7 @@ const Note = ({ note }) => (
   <section>
     <p>{note}</p>
   </section>
-);
+);*/
 
 // export default function App() {
 // const [note, setNote] = useState("");
@@ -94,6 +94,14 @@ const Note = ({ note }) => (
 
 
 function App() {
+  return (
+    //<ApolloProvider client={client}>
+      <BrowserRouter>
+        <Home />
+      </BrowserRouter>
+   //</ApolloProvider>
+  );
+/*
   return (
     <ApolloProvider client={client}>
       <Router>
@@ -135,7 +143,7 @@ function App() {
         </div>
       </Router>
     </ApolloProvider>
-  )
+  )*/
 };
 
 export default App;
