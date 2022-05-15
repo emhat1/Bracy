@@ -1,104 +1,107 @@
+// Import external dependencies
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
-import { ADD_RESCUE } from '../../utils/mutations';
+// Import internal dependencies
+import Auth from '../utils/auth';
+import { ADD_RESCUE } from '../utils/mutations';
 import { DELETE_RESCUE } from '../../utils/mutations';
 
-import Auth from '../../utils/auth';
+function Rescue(props) {
+  const [formState, setFormState] = useState({ title: '', rescueType: '', suburb: '', state: '', website: '' });
+  const [addRescue] = useMutation(ADD_RESCUE);
+  const [title, setTitle] = useState('');
+  const [rescueType, setRescueType] = useState('');
+  const [suburb, setSuburb] = useState('');
+  const [state, setState] = useState('');
+  const [website, setWebsite] = useState('');
 
-const RescueForm = () => {
-  const [messageText, setMessageText] = useState('');
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
 
-  const [characterCount, setCharacterCount] = useState(0);
-
-  const [addMessage, { error }] = useMutation(ADD_MESSAGE, {
-    update(cache, { data: { addMessage } }) {
-      try {
-        const { messages } = cache.readQuery({ query: QUERY_MESSAGE });
-
-        cache.writeQuery({
-          query: QUERY_MESSAGES,
-          data: { messages: [addMessage, ...messages] },
-        });
-      } catch (e) {
-        console.error(e);
-      }
-
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-
-    try {
-      const { data } = await addMessage({
-        variables: {
-          messageText,
-          messageAuthor: Auth.getProfile().data.username,
-        },
-      });
-
-      setMessageText('');
-    } catch (err) {
-      console.error(err);
-    }
+    const mutationResponse = await addRescue({
+      variables: {
+        title: formState.title,
+        rescueType: formState.rescueType,
+        suburb: formState.suburb,
+        state: formState.state,
+        website: formState.website
+      },
+    });
+    const token = mutationResponse.data.addRescue.token;
+    Auth.login(token);
   };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    if (name === 'messageText' && value.length <= 280) {
-      setMessageText(value);
-      setCharacterCount(value.length);
-    }
+  const handleInputChange = (e) => {
+    // Getting the value and name of the input which triggered the change
+    const { target } = e;
+    const inputType = target.name;
+    const inputValue = target.value;
   };
 
   return (
-    <div>
-      <h3>What are your squishy-faced thoughts?</h3>
+    <div className="container my-1">
+      <Link to="/login">Go to Login</Link>
 
-      {Auth.loggedIn() ? (
-        <>
-          <p
-            className={`m-0 ${
-              characterCount === 280 || error ? 'text-danger' : ''
-            }`}
-          >
-            Character Count: {characterCount}/280
-          </p>
-          <form
-            className="flex-row justify-center justify-space-between-md align-center"
-            onSubmit={handleFormSubmit}
-          >
-            <div className="col-12 col-lg-9">
-              <textarea
-                name="messageText"
-                placeholder="Here's a new thought..."
-                value={thoughtText}
-                className="form-input w-100"
-                style={{ lineHeight: '1.5', resize: 'vertical' }}
-                onChange={handleChange}
-              ></textarea>
-            </div>
-
-            <div className="col-12 col-lg-3">
-              <button className="btn btn-primary btn-block py-3" type="submit">
-                Add Message
-              </button>
-            </div>
-            {error && (
-              <div className="col-12 my-3 bg-danger text-white p-3">
-                {error.message}
-              </div>
-            )}
-          </form>
-        </>
-      ) : (
-        <p>
-          You need to be logged in to add a rescue organisation. Please{' '}
-          <Link to="/Login">login</Link> or <Link to="/Signup">signup.</Link>
-        </p>
-      )}
+      <h2>Add a Rescue Organisation</h2>
+      <form onSubmit={handleFormSubmit}>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="title">Rescue Organisation name:</label>
+          <input
+            placeholder="Squishies Flat Faced Animal Rescue"
+            name="title"
+            type="title"
+            id="title"
+            onChange={handleInputChange}
+          />
+        </div>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="rescueType">Rescue Speciality type:</label>
+          <input
+            placeholder="Brachycephalic"
+            name="rescueType"
+            type="rescueType"
+            id="rescueType"
+            onChange={handleInputChange}
+          />
+        </div>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="suburb">Suburb:</label>
+          <input
+            placeholder="Wantirna"
+            name="suburb"
+            type="suburb"
+            id="suburb"
+            onChange={handleInputChange}
+          />
+        </div>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="state">State:</label>
+          <input
+            placeholder="Victoria"
+            name="state"
+            type="state"
+            id="state"
+            onChange={handleInputChange}
+          />
+        </div>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="website">Website:</label>
+          <input
+            placeholder="https://www.squishiesrescue.org.au/"
+            name="website"
+            type="website"
+            id="website"
+            onChange={handleInputChange}
+          />
+        </div>
+        <div className="flex-row flex-end">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
     </div>
   );
-};
+}
 
 export default RescueForm;
