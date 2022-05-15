@@ -6,24 +6,24 @@ import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
 // Imporing internal dependencies
-import RescueForm from '../components/RescueForm';
-import { QUERY_USER } from '../utils/queries';
-import Auth from '../utils/auth';
+import RescueForm from '../RescueForm';
+// import { QUERY_USER } from '../../utils/queries';
+import Auth from '../../utils/auth';
 
 const Profile = () => {
-  const { username: userParam } = useParams();
-
-  const { loading, data } = useQuery(userParam ? QUERY_USER, {
+   const { username: userParam } = useParams();
+/*
+  const { loading, data } = useQuery(userParam ? QUERY_USER: {
     variables: { username: userParam },
   });
 
   const user = data?.me || data?.user || {};
-  // navigate to personal profile page if username is yours
+  // navigate to personal profile page if username is yours */
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
     return <Navigate to="/me" />;
   }
 
-  if (loading) {
+  /* if (loading) {
     return <div>Loading...</div>;
   }
 
@@ -32,19 +32,19 @@ const Profile = () => {
       <h4>
         You need to be logged in to access this page.  Please log in or sign up
       </h4>
-    );
-  }
+    ); 
+  }*/
 
   return (
     <div>
       <div className="flex-row justify-center mb-3">
-        <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
+ {/*        <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
           Viewing {userParam ? `${user.username}'s` : 'your'} profile.
         </h2>
-
+ */}
         <div className="col-12 col-md-10 mb-5">
-          <RescueList
-            rescue={user.messages}
+{/*           <RescueForm
+/*             rescue={user.messages}
             title={`${user.username}'s messages...`}
             showTitle={false}
             showUsername={false}
@@ -54,7 +54,7 @@ const Profile = () => {
           <div
             className="col-12 col-md-10 mb-3 p-3"
             style={{ border: '1px dotted #1a1a1a' }}
-          >
+          > */ }
             <RescueForm />
           </div>
         )}

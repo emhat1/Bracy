@@ -12,6 +12,18 @@ export const QUERY_MESSAGES = gql`
   }
 `;
 
+/* export const QUERY_USER = gql`
+  # create a GraphQL query to be executed by Apollo Client
+  query getEmail {
+    messages {
+      _id
+      messageText
+      messageAuthor
+      createdAt
+    }
+  }
+`; */
+
 export const QUERY_RESCUES = gql`
   # create a GraphQL query to be executed by Apollo Client
   query getRescues {

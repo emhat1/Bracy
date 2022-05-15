@@ -2,10 +2,10 @@ import React from 'react';
 // Import the `useQuery()` hook from Apollo Client
 import { useQuery } from '@apollo/client';
 
-import MessageList from '../components/MessageList';
+import MessageList from '../MessageList';
 
 // Import the query we are going to execute from its file
-import { QUERY_MESSAGES } from '../utils/queries';
+import { QUERY_MESSAGES } from '../../utils/queries';
 
 const Messages = () => {
   // Execute the query on component load

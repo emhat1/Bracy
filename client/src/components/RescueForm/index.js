@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
 // Import internal dependencies
-import Auth from '../utils/auth';
-import { ADD_RESCUE } from '../utils/mutations';
+import Auth from '../../utils/auth';
+import { ADD_RESCUE } from '../../utils/mutations';
 import { DELETE_RESCUE } from '../../utils/mutations';
 
 function Rescue(props) {
@@ -17,7 +17,7 @@ function Rescue(props) {
   const [state, setState] = useState('');
   const [website, setWebsite] = useState('');
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async(e) => {
     e.preventDefault();
 
     const mutationResponse = await addRescue({
@@ -104,4 +104,4 @@ function Rescue(props) {
   );
 }
 
-export default RescueForm;
+export default Rescue;

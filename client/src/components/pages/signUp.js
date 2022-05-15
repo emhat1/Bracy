@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
 // Import internal dependencies
-import Auth from '../utils/auth';
-import { ADD_USER } from '../utils/mutations';
+import Auth from '../../utils/auth';
+import { ADD_USER } from '../../utils/mutations';
 import { checkPassword, validateEmail } from '../../utils/helpers';
 
 function Signup(props) {
@@ -15,7 +15,7 @@ function Signup(props) {
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async(e) => {
     e.preventDefault();
 
     // Check validity of email and password formats

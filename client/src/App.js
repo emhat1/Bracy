@@ -13,7 +13,8 @@ import Signup from './components/pages/Signup';
 import Messages from './components/pages/Messages';
 import Profile from './components/pages/Profile';
 import Rescues from './components/pages/Rescues';
-/* import "./App.css"; */
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 
 // import PortfolioContainer from './components';
