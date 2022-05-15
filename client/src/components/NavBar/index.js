@@ -105,11 +105,16 @@ function NavTabs({ currentPage, handlePageChange }) {
           Sign up
         </NavLink>
       </li>
-      <li className="nav-item">
-        <NavLink to="/Profile" className={( { isActive } ) => isActive ? 'nav-link active' : 'nav-link'}>
-          Profile
-        </NavLink>
-      </li>
+      {
+        Auth.loggedIn() ?
+          <li className="nav-item">
+            <NavLink to="/Profile" className={( { isActive } ) => isActive ? 'nav-link active' : 'nav-link'}>
+              Profile
+            </NavLink>
+          </li>
+        :
+          <></>
+      }
     </ul>
   );
 }
