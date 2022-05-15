@@ -70,9 +70,10 @@ mutation addRescue(
   }
 }
 `;
-
+/* 
 export const DELETE_RESCUE = gql`
 mutation deleteRescue {
-  id: ID!
+  id: ID
 }
 `
+ */

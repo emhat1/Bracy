@@ -11,7 +11,6 @@ import { checkPassword, validateEmail } from '../../utils/helpers';
 
 const MessageForm = () => {
   const [messageText, setMessageText] = useState('');
-
   const [characterCount, setCharacterCount] = useState(0);
 
   const [addMessage, { error }] = useMutation(ADD_MESSAGE, {
@@ -26,7 +25,7 @@ const MessageForm = () => {
       } catch (e) {
         console.error(e);
       }
-
+    
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 

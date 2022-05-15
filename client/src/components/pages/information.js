@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useMutation } from '@apollo/client';
 
 
 
@@ -18,6 +17,7 @@ export default function Information() {
                 <ul>
                   <li> narrowed nasal passages, causing breathing difficulties and frequent sinus infections</li>
                   <li> bulging eyes (proptosis), leading in increased eye iritation, injury and discharge</li>
+                  <li> increased dental issues, often resulting in teeth requiring extraction</li>
                 </ul>
             </p>
             <p></p>
