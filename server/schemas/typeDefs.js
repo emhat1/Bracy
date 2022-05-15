@@ -15,7 +15,7 @@ const typeDefs = gql`
 
   type Mutation {
     addMessage(messageText: String!, messageAuthor: String!): Message
-    removeMessage(MessageId: ID!): message
+    removeMessage(MessageId: ID!): Message
   }
 `;
 

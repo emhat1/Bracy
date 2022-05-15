@@ -2,6 +2,7 @@
 const express = require('express');
 const cors = require('cors');
 
+
 // Import the ApolloServer class
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
@@ -10,6 +11,9 @@ const { authMiddleware } = require('./utils/auth')
 // Import the two parts of a GraphQL schema
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
+
+// Initialise the app variable to the value of express()
+const app = express();
 
 // Setting up Stripe
 // REMEMBER TO PUT IN PROPER SECRET sk-test-etc key before deploying to Heroku!!
@@ -35,9 +39,6 @@ app.post('/create-checkout-session', async (req, res) => {
   res.redirect(303, session.url);
 });
 app.listen(4242, () => console.log('Running on port 4242'));
-
-// Initialise the app variable to the value of express()
-const app = express();
 
 // Initialise the server variable as a new ApolloServer
 const server = new ApolloServer({
