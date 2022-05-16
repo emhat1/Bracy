@@ -16,31 +16,31 @@ export default function NavBar() {
 
         {
             title: "Home",
-            link: "/pages/Home",
+            link: "/Home",
         },
         {
             title: "Breeds",
-            link: "/pages/Information",
+            link: "/Information",
         },
         {
             title: "Message Board",
-            link: "/pages/Messages",
+            link: "/Messages",
         },
         {
             title: "Rescue Organisations",
-            link: "/pages/Rescues",
+            link: "/Rescues",
         },
         {
             title: "Login",
-            link: "/pages/Login",
+            link: "/Login",
         },
         {
             title: "Signup",
-            link: "/pages/Signup",
+            link: "/Signup",
         },
         {
             title: "Profile",
-            link: "/pages/Profile",
+            link: "/Profile",
         },
         {
             title: "Log Out",
@@ -59,6 +59,7 @@ export default function NavBar() {
       ].join(',');
 
     const styles = {
+        fontSize: '2-px',
         navBar: {
             textAlign: "center",
             fontFamily: fontFamily,
