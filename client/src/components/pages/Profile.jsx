@@ -3,7 +3,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';import {  } from 'react-router-dom';
 
-// Imporing internal dependencies
+// Importing internal dependencies
 import RescueForm from '../RescueForm';
 import MessageForm from '../MessageForm';
 import { QUERY_USER } from '../../utils/queries';
@@ -31,16 +31,16 @@ const Profile = () => {
        <h5 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
           What would you like to do?
         </h5>
-            <MessageForm />
+{             <MessageForm /> }
         <p></p>
         <h5 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
           Would you like to upload a specialty rescue organisation?
         </h5>
-            <RescueForm />
+{             <RescueForm /> }
           </div>
       </div>
     );
   };
 };
 
-export default Profile
+export default Profile; 

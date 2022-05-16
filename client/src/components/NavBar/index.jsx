@@ -16,7 +16,7 @@ export default function NavBar() {
 
         {
             title: "Home",
-            link: "/Home",
+            link: "/",
         },
         {
             title: "Breeds",
