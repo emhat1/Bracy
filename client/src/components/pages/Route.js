@@ -5,7 +5,7 @@ import Information from './Information';
 import Rescues from './Rescues';
 import Profile from './Profile';
 import Messages from './Messages.js';
-import Signup from './Signp.js';
+import Signup from './Signup.js';
 import NoMatch from './NoMatch.js';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
