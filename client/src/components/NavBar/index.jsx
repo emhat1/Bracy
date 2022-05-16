@@ -26,7 +26,7 @@ export default function NavBar() {
             title: "Message Board",
             link: "/pages/Messages",
         },
-        {
+        { 
             title: "Rescue Organisations",
             link: "/pages/Rescues",
         },
