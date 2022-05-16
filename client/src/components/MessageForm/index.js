@@ -1,105 +1,58 @@
+// Import external dependencies
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
-import { ADD_MESSAGE } from '../../utils/mutations';
-import { QUERY_MESSAGE } from '../../utils/queries';
-
+// Import internal dependencies
 import Auth from '../../utils/auth';
+import { ADD_MESSAGE } from '../../utils/mutations';
+const dateFormat = require('../utils/dateFormat');
 
-import { checkPassword, validateEmail } from '../../utils/helpers';
 
-const MessageForm = () => {
+function Message(props) {
+  const [formState, setFormState] = useState({ messageText: '', messageAuthor: '', createdAt: ''});
+  const [addMessage] = useMutation(ADD_MESSAGE);
   const [messageText, setMessageText] = useState('');
-  const [characterCount, setCharacterCount] = useState(0);
+  const [messageAuthor, setMessageAuthor] = useState('');
+  const [messageAuthor, setMessageAuthor] = useState('');
 
-  const [addMessage, { error }] = useMutation(ADD_MESSAGE);/* , {
-    update(cache, { data: { addMessage } }) {
-      try {
-        const { messages } = cache.readQuery({ query: QUERY_MESSAGE });
+  const handleFormSubmit = async(e) => {
+    e.preventDefault();
 
-        cache.writeQuery({
-          query: QUERY_MESSAGES,
-          data: { messages: [addMessage, ...messages] },
-        });
-      } catch (e) {
-        console.error(e);
-      }
-     */
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-
-    try {
-      const { data } = await addMessage({
-        variables: {
-          messageText,
-          messageAuthor: Auth.getProfile().data.firstName,
-        },
-      });
-
-      setMessageText('');
-    } catch (err) {
-      console.error(err);
-    }
+    const mutationResponse = await addMessage({
+      variables: {
+        messageText: formState.title,
+        messageAuthor: Auth.getProfile().data.firstName,,
+        createdAt: Date.now,
+    });
+    const token = mutationResponse.data.addMessage.token;
+    Auth.login(token);
   };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    if (name === 'messageText' && value.length <= 280) {
-      setMessageText(value);
-      setCharacterCount(value.length);
-    }
+ const handleInputChange = (e) => {
   };
 
   return (
-    <div>
-      <h3>What are your squishy-faced thoughts?</h3>
+    <div className="container my-1">
+      <h2>What would you like to say?</h2>
+      <form onSubmit={handleFormSubmit}>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="messageText">Your squishy-faced thoughts</label>
+          <input
+            placeholder="What are your thoughts on these breeds?"
+            name="messageText"
+            type="messageText"
+            id="messageText"
+            onChange={handleInputChange}
+          />
+        </div>
 
-      {Auth.loggedIn() ? (
-        <>
-          <p
-            className={`m-0 ${
-              characterCount === 280 || error ? 'text-danger' : ''
-            }`}
-          >
-            Character Count: {characterCount}/280
-          </p>
-          <form
-            className="flex-row justify-center justify-space-between-md align-center"
-            onSubmit={handleFormSubmit}
-          >
-            <div className="col-12 col-lg-9">
-              <textarea
-                name="messageText"
-                placeholder="Here's a new thought..."
-                value={messageText}
-                className="form-input w-100"
-                style={{ lineHeight: '1.5', resize: 'vertical' }}
-                onChange={handleChange}
-              ></textarea>
-            </div>
-
-            <div className="col-12 col-lg-3">
-              <button className="btn btn-primary btn-block py-3" type="submit">
-                Add Message
-              </button>
-            </div>
-            {error && (
-              <div className="col-12 my-3 bg-danger text-white p-3">
-                {error.message}
-              </div>
-            )}
-          </form>
-        </>
-      ) : (
-        <p>
-          You need to be logged in to share your thoughts. Please{' '}
-          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
-        </p>
-      )}
+        <div className="flex-row flex-end">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
     </div>
   );
-};
+}
 
-export default MessageForm;
+export default Message;

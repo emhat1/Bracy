@@ -6,10 +6,10 @@ import { useMutation } from '@apollo/client';
 // Import internal dependencies
 import Auth from '../../utils/auth';
 import { ADD_RESCUE } from '../../utils/mutations';
-import { DELETE_RESCUE } from '../../utils/mutations';
+/* import { DELETE_RESCUE } from '../../utils/mutations'; */
 
 function Rescue(props) {
-  const [formState, setFormState] = useState({ title: '', rescueType: '', suburb: '', state: '', website: '' });
+  const [formState] = useState({ title: '', rescueType: '', suburb: '', state: '', website: '' });
   const [addRescue] = useMutation(ADD_RESCUE);
   const [title, setTitle] = useState('');
   const [rescueType, setRescueType] = useState('');
@@ -34,10 +34,6 @@ function Rescue(props) {
   };
 
  const handleInputChange = (e) => {
-    // Getting the value and name of the input which triggered the change
-    //const { target } = e;
-    //const inputType = target.name;
-    //const inputValue = target.value;
   };
 
   return (

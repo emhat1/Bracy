@@ -1,7 +1,7 @@
 // Importing external dependencies
 import React from 'react';
-import { Navigate, useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
+import { Navigate, NavLink, useParams } from 'react-router-dom';
+import { useQuery } from '@apollo/client';import {  } from 'react-router-dom';
 
 // Imporing internal dependencies
 import RescueForm from '../RescueForm';
@@ -29,7 +29,7 @@ const Profile = () => {
           Viewing {user.firstName} {user.lastName}'s profile.
         </h2>
        <h5 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
-          Would you like to write a message?
+          What would you like to do?
         </h5>
             <MessageForm />
         <p></p>
