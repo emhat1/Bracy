@@ -5,7 +5,7 @@ import { useQuery } from '@apollo/client';import {  } from 'react-router-dom';
 
 // Imporing internal dependencies
 import RescueForm from '../RescueForm';
-import MesssageForm from '../MessageForm';
+import MessageForm from '../MessageForm';
 import { QUERY_USER } from '../../utils/queries';
 import Auth from '../../utils/auth';
 

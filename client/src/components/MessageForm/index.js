@@ -6,7 +6,6 @@ import { useMutation } from '@apollo/client';
 // Import internal dependencies
 import Auth from '../../utils/auth';
 import { ADD_MESSAGE } from '../../utils/mutations';
-const dateFormat = require('../utils/dateFormat');
 
 
 function Message(props) {
@@ -14,7 +13,7 @@ function Message(props) {
   const [addMessage] = useMutation(ADD_MESSAGE);
   const [messageText, setMessageText] = useState('');
   const [messageAuthor, setMessageAuthor] = useState('');
-  const [messageAuthor, setMessageAuthor] = useState('');
+
 
   const handleFormSubmit = async(e) => {
     e.preventDefault();
@@ -22,8 +21,9 @@ function Message(props) {
     const mutationResponse = await addMessage({
       variables: {
         messageText: formState.title,
-        messageAuthor: Auth.getProfile().data.firstName,,
+        messageAuthor: Auth.getProfile().data.firstName,
         createdAt: Date.now,
+      }
     });
     const token = mutationResponse.data.addMessage.token;
     Auth.login(token);
