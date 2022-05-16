@@ -1,72 +1,161 @@
 // Importing external dependencies
 import React from 'react';
-import { NavLink } from 'react-router-dom';
- 
+import { Container, Button, Toolbar, Typography, Box, IconButton, Link, Paper } from '@mui/material';
+import AppBar from '@mui/material/AppBar';
+import MenuIcon from '@mui/icons-material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Menu from '@mui/material/Menu';
+
 // Importing internal dependencies
 import Auth from '../../utils/auth';
 
 
-function NavTabs({ currentPage, handlePageChange }) {
-  const logout = (event) => {
-    event.preventDefault();
-    Auth.logout();
-  };
 
-  return (
-    
-    <ul className="nav nav-tabs">
-      <li className="nav-item">
-        <NavLink to="/" className={( { isActive } ) => isActive ? 'nav-link active' : 'nav-link'}>
-          Home
-        </NavLink>
-      </li>
-      <li className="nav-item">
-        <NavLink to="/Information" className={( { isActive } ) => isActive ? 'nav-link active' : 'nav-link'}>
-          Information
-        </NavLink>
-      </li>
-      <li className="nav-item">
-        <NavLink to="/Messages" className={( { isActive } ) => isActive ? 'nav-link active' : 'nav-link'}>
-          Message Board
-        </NavLink>
-      </li>
-      <li className="nav-item">
-        <NavLink to="/Rescues" className={( { isActive } ) => isActive ? 'nav-link active' : 'nav-link'}>
-          Rescue Organisations
-        </NavLink>
-      </li>
-      <li className="nav-item">
-        <NavLink to="/Login" className={( { isActive } ) => isActive ? 'nav-link active' : 'nav-link'}>
-          Login
-        </NavLink>
-      </li>
-      <li className="nav-item">
-        <NavLink to="/Signup" className={( { isActive } ) => isActive ? 'nav-link active' : 'nav-link'}>
-          Sign up
-        </NavLink>
-      </li>
-      {
-        Auth.loggedIn() ?
-          <li className="nav-item">
-            <NavLink to="/Profile" className={( { isActive } ) => isActive ? 'nav-link active' : 'nav-link'}>
-              Profile
-            </NavLink>
-          </li>
-        :
-          <></>
-      }
-      {
-        Auth.loggedIn() ?
-          <li className="nav-item">
-            <NavLink to='/' onClick={logout}>
-              Logout
-            </NavLink>
-          </li>
-        :
-          <></>
-      }
-    </ul>
-  );
+export default function NavBar() {
+
+    const listItems = [
+
+        {
+            title: "Home",
+            link: "/pages/Home",
+        },
+        {
+            title: "Breeds",
+            link: "/pages/Information",
+        },
+        {
+            title: "Message Board",
+            link: "/pages/Messages",
+        },
+        {
+            title: "Rescue Organisations",
+            link: "/pages/Rescues",
+        },
+        {
+            title: "Login",
+            link: "/pages/Login",
+        },
+        {
+            title: "Signup",
+            link: "/pages/Signup",
+        },
+        {
+            title: "Profile",
+            link: "/pages/Profile",
+        },
+        {
+            title: "Log Out",
+            link: "/",
+            onClick: function () {
+                auth.logout();
+            }
+        },
+
+
+    ];
+
+    const fontFamily = [
+        'Arvo', 
+        serif
+      ].join(',');
+
+    const styles = {
+        navBar: {
+            textAlign: "center",
+            fontFamily: fontFamily,
+            backgroundColor: "#F3D2C1",
+            color: "#001858",
+            fontSize: "2rem",
+        },
+        logo: {
+            fontFamily: fontFamily,
+            backgroundColor: "#F3D2C1",
+            color: "#001858",
+            fontWeight: "bold",
+            fontSize: "2rem",
+            color: "wheat"
+        },
+        button: {
+            fontSize: "1.50rem",
+            fontWeight: "bold",
+            fontFamily: fontFamily,
+            backgroundColor: "#F3D2C1",
+            color: "#001858",
+            borderRadius: "28px"
+
+        },
+        link: {
+            textDecoration: "none",
+            fontFamily: fontFamily,
+            color: "#001858",
+            fontWeight: 'bold'
+
+        }
+    }
+    const [anchorElNav, setAnchorElNav] = React.useState(null);
+    const open = Boolean(anchorElNav);
+
+    const handleOpenNavMenu = (event) => {
+        setAnchorElNav(event.currentTarget);
+    };
+
+    const handleCloseNavMenu = () => {
+        setAnchorElNav(null);
+    };
+
+    return (
+
+        <>
+            <AppBar position="static" style={styles.navBar} elevation={0} maxwidth="xl">
+                <Container maxwidth="xl">
+                    <Toolbar disableGutters>
+                         <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                            <IconButton
+                                onClick={handleOpenNavMenu}
+                                aria-haspopup="true"
+                                color="inherit"
+                            >
+                                <MenuIcon />
+                            </IconButton>
+                            <Menu
+                                id="menu-appbar"
+                                anchorEl={anchorElNav}
+                                anchorOrigin={{
+                                    vertical: 'bottom',
+                                    horizontal: 'left',
+                                }}
+                                keepMounted
+                                transformOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'left',
+                                }}
+                                open={open}
+                                onClose={handleCloseNavMenu}
+                                MenuListProps={{
+                                    'aria-labelledby': 'basic-button',
+                                }}
+                                sx={{
+                                    display: { xs: 'block', sm: 'block', md: 'none' },
+                                }}
+                            >
+                                {listItems.map((listItem, i) => (
+                                    <Paper elevation={0} key={i}>
+                                        <MenuItem onClick={handleCloseNavMenu}>
+                                            <Typography textAlign="center">
+
+                                                <Link
+                                                    onClick={listItem.onClick || (() => { })}
+                                                    href={listItem.link} style={styles.link}>{listItem.title}</Link>
+                                           </Typography>
+                                        </MenuItem>
+                                    </Paper>
+                                ))}
+                            </Menu>
+                        </Box>
+                        </Toolbar>
+                </Container>
+            </AppBar>
+        </>
+
+    )
 }
-
-export default NavTabs;

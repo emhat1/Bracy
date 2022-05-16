@@ -2,10 +2,15 @@ import React from 'react';
 import { Container } from '@mui/material';
 
 const Footer = () => {
+  const fontFamily = [
+    'Arvo', 
+    serif
+  ].join(',');
+
   const styles = {
     backgroundColor: "#8BD3DD",
     color: "#001858",
-    fontFamily: ['Arvo', 'serif'],
+    fontFamily: fontFamily,
     container: {
       marginTop: "10vh",
       textAlign: "center",
