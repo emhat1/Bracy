@@ -64,110 +64,53 @@ const client = new ApolloClient({
     </form>
   </section>
 );
-
 const Note = ({ note }) => (
   <section>
     <p>{note}</p>
   </section>
-);*/
+);
+ export default function App() {
+ const [note, setNote] = useState("");
+  useEffect(() => {
+    // Check to see if this is a redirect back from Checkout
+    const query = new URLSearchParams(window.location.search);
 
-// export default function App() {
-// const [note, setNote] = useState("");
-//  useEffect(() => {
-//    // Check to see if this is a redirect back from Checkout
-//    const query = new URLSearchParams(window.location.search);
-//
-//    if (query.get("success")) {
-//      setNote("Donation made! Thank you for improving an animal's life");
-//    }
-//
-//    if (query.get("canceled")) {
-//      setNote(
-//        "Donation canceled - feel free to donate when you're ready."
-//      );
-//    }
-//  }, []);
-//
-//  return note ? (
-//    <Note note={note} />
-//  ) : (
-//    <Donation />
-//  );
+    if (query.get("success")) {
+      setNote("Donation made! Thank you for improving an animal's life");
+    }
 
+    if (query.get("canceled")) {
+      setNote(
+        "Donation canceled - feel free to donate when you're ready."
+     );
+    }
+  }, []);
+
+  return note ? (
+    <Note note={note} />
+  ) : (
+    <Donation />
+  );
+*/
 
 
 function App() {
-/* /*   return (
-    <ApolloProvider client={client}>
-      <BrowserRouter>
-      <div className="flex-column justify-flex-start min-100-vh">
-          <Header />
-          <div className="container">
-            <Routes>
-              <Route 
-                path="/" 
-                element={<Home />}
-      </BrowserRouter>
-   //</ApolloProvider>
-  );
-
-  return (
-    <ApolloProvider client={client}>
-      <BrowserRouter>
-        <div className="flex-column justify-flex-start min-100-vh">
-          <Header />
-          <div className="container">
-            <Routes>
-              <Route 
-                path="/"
-                element={<Home />}
-              />
-              <Route 
-                path="/Login" 
-                element={<Login />}
-              />
-              <Route 
-                path="/Signup" 
-                element={<Signup />}
-              />
-              <Route 
-                path="/Profile" 
-                element={<Profile />}
-              />
-              <Route 
-                path="/Messages" 
-                element={<Messages />}
-              />
-              <Route 
-                path="/Rescues" 
-                element={<Rescues />}
-              />
-              <Route 
-                path="/Information" 
-                element={<Information />}
-              />
-            </Routes>
-          </div>
-          <Footer />
-        </div>
-      </BrowserRouter>
-    </ApolloProvider>
-  ) */
   return (
     <ApolloProvider client={client}>
       <Router>
         <Header />
           <NavBar />
-          <Routes>
-            <Route exact path='/' element={<Home props/>} />
-            <Route exact path='/Information' element={<Information />} />
-            <Route exact path='/Messages' element={<Messages />} />
-            <Route exact path='/Rescues' element={<Rescues />} />
-            <Route exact path='/NoMatch' element={<NoMatch />} />
-            <Route exact path='/Login' element={<Login />} />
-            <Route exact path='/Signup' element={<Signup />} />
-            <Route exact path='/Profile' element={Auth.loggedIn() ? <Profile /> : <Navigate replace to='/'/>} />
+            <Routes>
+              <Route exact path='/' element={<Home props/>} />
+              <Route exact path='/Information' element={<Information />} />
+              <Route exact path='/Messages' element={<Messages />} />
+              <Route exact path='/Rescues' element={<Rescues />} />
+              <Route exact path='/NoMatch' element={<NoMatch />} />
+              <Route exact path='/Login' element={<Login />} />
+              <Route exact path='/Signup' element={<Signup />} />
+              <Route exact path='/Profile' element={Auth.loggedIn() ? <Profile /> : <Navigate replace to='/'/>} />
           </Routes>
+        <Footer />
       </Router>
     </ApolloProvider>
   );
