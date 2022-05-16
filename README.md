@@ -39,7 +39,7 @@ To run successfully from local, npmi followed by npm run develop.
 
 
 ## Link
-To see the working application click on the [heroku link](https://squishy-face.herokuapp.com/) or clone the [Github link](https://github.com/emhat1/bracy.git)
+To see the working application click on the [heroku link](https://squishy-faces.herokuapp.com/) or clone the [Github link](https://github.com/emhat1/bracy.git)
 
 ## Contact
 Contributors can be contacted through their github pages
