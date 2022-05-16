@@ -7,7 +7,7 @@ import { Container } from '@mui/material';
 const Header = () => {
   const fontFamily = [
     'Arvo', 
-    serif
+    'serif'
   ].join(',');
 
   const styles = {

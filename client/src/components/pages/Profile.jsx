@@ -1,6 +1,6 @@
 // Importing external dependencies
 import React from 'react';
-import { Navigate, NavLink, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';import {  } from 'react-router-dom';
 
 // Imporing internal dependencies

@@ -2,8 +2,7 @@
 import React from 'react';
 import { Container, Button, Toolbar, Typography, Box, IconButton, Link, Paper } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
-import MenuIcon from '@mui/icons-material/Menu';
-import MenuItem from '@mui/material/MenuItem';
+import { MenuItem } from '@mui/material';
 import Menu from '@mui/material/Menu';
 
 // Importing internal dependencies
@@ -47,7 +46,7 @@ export default function NavBar() {
             title: "Log Out",
             link: "/",
             onClick: function () {
-                auth.logout();
+                Auth.logout();
             }
         },
 
@@ -56,7 +55,7 @@ export default function NavBar() {
 
     const fontFamily = [
         'Arvo', 
-        serif
+        'serif'
       ].join(',');
 
     const styles = {
@@ -73,7 +72,7 @@ export default function NavBar() {
             color: "#001858",
             fontWeight: "bold",
             fontSize: "2rem",
-            color: "wheat"
+
         },
         button: {
             fontSize: "1.50rem",
@@ -115,7 +114,6 @@ export default function NavBar() {
                                 aria-haspopup="true"
                                 color="inherit"
                             >
-                                <MenuIcon />
                             </IconButton>
                             <Menu
                                 id="menu-appbar"

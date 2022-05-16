@@ -4,7 +4,7 @@ import { Container } from '@mui/material';
 const Footer = () => {
   const fontFamily = [
     'Arvo', 
-    serif
+    'serif'
   ].join(',');
 
   const styles = {
