@@ -1,12 +1,36 @@
 import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Container } from '@mui/material';
 
 const Footer = () => {
+  const styles = {
+    backgroundColor: "#8BD3DD",
+    color: "#001858",
+    fontFamily: ['Arvo', 'serif'],
+    container: {
+      marginTop: "10vh",
+      textAlign: "center",
+    },
+    link: {
+      underline: "none",
+      textDecoration: "none",
+      color: "#001858",
+    },
+    footer: {
+      fontSize: "0.75rem",
+    }
+  }
+
   return (
-    <footer className="w-100 mt-auto bg-secondary p-4">
-      <div className="container text-center mb-5">
-        <h4>
-          Donate $10 with{' '}
+    <Container style={styles.container}>
+      
+      <div style={styles.footer}>
+      <h4>
+        <form action="/create-checkout-session" method="POST">
+          <button type="submit">
+            Donate $10
+          </button>
+        </form>
+             with{' '}
           <span
             className="emoji"
             role="img"
@@ -17,14 +41,9 @@ const Footer = () => {
           </span>{' '}
           to Squishies Flat-Faced Animal Rescue
         </h4> 
-        <form action="/create-checkout-session" method="POST">
-          <button type="submit">
-            DONATE
-          </button>
-        </form>
       </div>
-    </footer>
-  );
+    </Container >
+  )
 };
 
 export default Footer;

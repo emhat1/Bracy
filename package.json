@@ -17,6 +17,7 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
+    "@mui/material": "^5.7.0",
     "apollo": "^2.33.11",
     "apollo-server-express": "^3.7.0",
     "bcrypt": "^5.0.1",
