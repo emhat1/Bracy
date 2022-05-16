@@ -26,7 +26,7 @@ export default function NavBar() {
             title: "Message Board",
             link: "/pages/Messages",
         },
-        { 
+        {
             title: "Rescue Organisations",
             link: "/pages/Rescues",
         },
@@ -149,6 +149,19 @@ export default function NavBar() {
                                     </Paper>
                                 ))}
                             </Menu>
+                        </Box>
+                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} style={styles.button}>
+                            {listItems.map((listItem, i) => (
+                                <Button
+                                    key={i}
+                                    onClick={handleCloseNavMenu}
+                                    sx={{ my: 2, color: 'white', display: 'block' }}
+                                    href={listItem.link}
+                                    style={styles.button}
+                                >
+                                    {listItem.title}
+                                </Button>
+                            ))}
                         </Box>
                         </Toolbar>
                 </Container>
